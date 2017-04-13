@@ -5,42 +5,42 @@ $('body').on('click', '#submit', (e) => {
 
 	const callAjax = (url, data) => {
 		$.ajax({
-		method: 'POST',
+		method: 'GET',
 		url: url,
-		dataType: 'text',
+		dataType: 'json',
 		data: data,
 		success: (data) => {
-			
+			console.log(data.meeting);
 		},
 		error: (error) => {
-
+			console.log(error);
 		}
 	}) 
 	}
 
 	switch(room){
 		case 'working': {
-			const url = '/rooms/working';
+			const url = 'http://localhost:3000/rooms/working';
 			callAjax(url, room);
 			break;
 		}
 		case 'quiet' : {
-			const url = '/rooms/quiet';
+			const url = 'http://localhost:3000/rooms/quiet';
 			callAjax(url, room);
 			break;
 		}
 		case 'games': {
-			const url = '/rooms/games';
+			const url = 'http://localhost:3000/rooms/games';
 			callAjax(url, room);
 			break;
 		}
 		case 'learning': {
-			const url = '/rooms/learning';
+			const url = 'http://localhost:3000/rooms/learning';
 			callAjax(url, room);
 			break;
 		}
 		case 'meeting': {
-			const url = '/rooms/meeting';
+			const url = 'http://localhost:3000/rooms/meeting';
 			callAjax(url, room);
 			break;
 		}
@@ -48,6 +48,4 @@ $('body').on('click', '#submit', (e) => {
 			return 'Invalid argument passed!';
 		}
 	}
-	
-	console.log(data);
 })
